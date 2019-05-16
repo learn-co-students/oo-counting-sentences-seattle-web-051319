@@ -28,9 +28,9 @@ class String
 
   def count_sentences
     split_period = self.split(".")
-    split_question = self.split("?")
-    split_exclaim = self.split("!")
-    total = 0
+    split_question = split_period.join.split("?")
+    split_exclaim = split_question.join.split("!").compact.count
+    total = 0 
   end
 
 end
