@@ -27,10 +27,19 @@ class String
   end
 
   def count_sentences
-    split_period = self.split(".")
-    split_question = split_period.join.split("?")
-    split_exclaim = split_question.join.split("!").compact.count
-    total = 0 
+    split_period = self.split(".").compact.reject{|a|a ==""}
+    split_question = self.split("?").compact.reject{|a|a ==""}
+    split_exclaim = self.split("!").compact.reject{|a|a ==""}
+    total = 0
+
+    total += split_period.count
+    if split_question.count > 1
+      total += split_question.count - 1
+    end
+    if split_exclaim.count > 1
+      total += split_exclaim.count - 1
+    end
+    total
   end
 
 end
