@@ -31,7 +31,6 @@ class String
     split_question = self.split("?").compact.reject{|a|a ==""}
     split_exclaim = self.split("!").compact.reject{|a|a ==""}
     total = 0
-
     total += split_period.count
     if split_question.count > 1
       total += split_question.count - 1
